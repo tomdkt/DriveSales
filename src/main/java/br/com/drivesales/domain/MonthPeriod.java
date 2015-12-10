@@ -5,13 +5,14 @@
  */
 package br.com.drivesales.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author thomas
  */
-public class MonthPeriod {
+public class MonthPeriod implements Serializable {
     private Date inicialDate;
     private Date finalDate;
 

@@ -8,6 +8,8 @@ package br.com.drivesales.service;
 import br.com.drivesales.domain.Branch;
 import br.com.drivesales.domain.Company;
 import br.com.drivesales.domain.Sale;
+import br.com.drivesales.parsable.template.FilialPeriodoTotalTemplate;
+import br.com.drivesales.reflection.ParseReflectionService;
 import br.com.drivesales.util.DelimitersEnum;
 import br.com.drivesales.util.HeaderTypes;
 import br.com.drivesales.util.MoneyHelper;
@@ -24,6 +26,7 @@ public class FilialPeriodoTotalProcess {
     private Company company;
     
     private MonthConverter monthConverter = new MonthConverter();
+    private ParseReflectionService parseReflectionService = new ParseReflectionService();
 
     public FilialPeriodoTotalProcess(HeaderTypes header, DelimitersEnum delimited) {
         this.header = header;
@@ -31,12 +34,14 @@ public class FilialPeriodoTotalProcess {
         this.company = new Company();
     }
     
-    public void parse(String line){
+    public void parse(String line) throws InstantiationException, IllegalAccessException{
         String[] parsed = line.split(delimited.getValue(), -1);
         
-        String location = parsed[0].trim();
-        String month = parsed[1].trim();
-        String total = parsed[2].trim();
+        FilialPeriodoTotalTemplate template = parseReflectionService.getEntity(parsed, header);
+        
+        String location = template.getFilial();
+        String month = template.getPeriodo();
+        String total = template.getTotal();
         
         Branch branch = new Branch();
         branch.setName("");

@@ -24,8 +24,8 @@ public class HeaderDelimitedFinder {
     
     
     public HeaderTypes getTypeHeader(String firstLine, DelimitersEnum delimiter){
-        if(firstLine == null){
-            return null;
+        if(firstLine == null || firstLine.isEmpty()){
+            return HeaderTypes.GENERIC;
         }
         
         String header = firstLine.replaceAll(delimiter.getValue(), DelimitersEnum.JOKER.getValue()).toUpperCase();        

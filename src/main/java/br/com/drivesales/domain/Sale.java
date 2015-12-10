@@ -5,13 +5,14 @@
  */
 package br.com.drivesales.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  *
  * @author thomas
  */
-public class Sale {
+public class Sale implements Serializable {
     private MonthPeriod period;
     private BigDecimal total;
 

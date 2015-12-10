@@ -5,6 +5,7 @@
  */
 package br.com.drivesales.service;
 
+import br.com.drivesales.exception.LineErrorException;
 import br.com.drivesales.util.DelimitersEnum;
 import br.com.drivesales.util.HeaderTypes;
 import java.io.BufferedReader;
@@ -19,26 +20,52 @@ import org.slf4j.LoggerFactory;
  */
 public class ProcessStream<T> {
     
+    private final Logger logger = LoggerFactory.getLogger(ProcessStream.class);
+    private final static String EMPTY_STRING = "";
     HeaderDelimitedFinder headerFinder = new HeaderDelimitedFinder();
     
-    private final Logger logger = LoggerFactory.getLogger(ProcessStream.class);
     
-    
-    public T parseToEntity(InputStreamReader in, DelimitersEnum delimiter) throws IOException{
+    public T parseToEntity(InputStreamReader in, DelimitersEnum delimiter) throws IOException, InstantiationException, IllegalAccessException{
         logger.debug("ENTER parseToEntity");
         FilialPeriodoTotalProcess filialProcess = null;
         
+        String currentLine = "";
+        Long lineNumber = 1L;
         try (BufferedReader br = new BufferedReader(in)) {
             String header = br.readLine();
+            lineNumber++;
             
             HeaderTypes headerType = headerFinder.getTypeHeader(header, DelimitersEnum.TAB);
             filialProcess = new FilialPeriodoTotalProcess(headerType,delimiter);
             
-            String line;
-            while ((line = br.readLine()) != null) {
-                filialProcess.parse(line);
+            while ((currentLine = br.readLine()) != null) {
+                filialProcess.parse(currentLine);
+                lineNumber++;
             }
             br.close();
+        }catch(Exception e ){
+            logger.error("Erro ao processar linha: " + currentLine);
+            throw new LineErrorException(currentLine, lineNumber, e);
+        }
+        
+        logger.debug("EXIT parseToEntity");
+        return (T) filialProcess.build();
+    }
+    
+    public T parseToEntity(String line, HeaderTypes headerType, DelimitersEnum delimiter) throws IOException, InstantiationException, IllegalAccessException{
+        logger.debug("ENTER parseToEntity");
+        FilialPeriodoTotalProcess filialProcess = null;
+        
+        String currentLine = line;
+        Long lineNumber = 1L;
+        try {
+            filialProcess = new FilialPeriodoTotalProcess(headerType, delimiter);
+
+            filialProcess.parse(currentLine);
+            lineNumber++;
+        }catch(Exception e ){
+            logger.error("Error process line: \"" + currentLine + "\"");
+            throw new LineErrorException(currentLine, lineNumber, e);
         }
         
         logger.debug("EXIT parseToEntity");

@@ -5,6 +5,12 @@
  */
 package br.com.drivesales.domain;
 
+import br.com.drivesales.parsable.Location;
+import br.com.drivesales.parsable.Parsable;
+import br.com.drivesales.parsable.Position;
+import br.com.drivesales.parsable.types.FilialPeriodoTotal;
+import br.com.drivesales.parsable.types.POSITION;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +18,7 @@ import java.util.List;
  *
  * @author thomas
  */
-public class Branch {
+public class Branch implements Serializable {
     private String name;
     private String location;
     private List<Sale> sales;

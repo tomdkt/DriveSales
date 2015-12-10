@@ -5,6 +5,7 @@
  */
 package br.com.drivesales.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author thomas
  */
-public class Company {
+public class Company implements Serializable {
     private String name;
     private List<Branch> branchs;
 

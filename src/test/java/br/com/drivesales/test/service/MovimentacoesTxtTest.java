@@ -33,7 +33,7 @@ public class MovimentacoesTxtTest {
     
     
     @Test
-    @Ignore
+//    @Ignore
     public void shouldReadATextAndSeparatesItByADelimiter() throws UnsupportedEncodingException, IOException {
         logger.info("ENTER shouldReadATextAndSeparatesItByADelimiter");
         
@@ -55,7 +55,7 @@ public class MovimentacoesTxtTest {
     }
     
     @Test
-    @Ignore
+//    @Ignore
     public void shouldReadATextAndFindItsHeaders() throws UnsupportedEncodingException, IOException {
         logger.info("ENTER shouldReadATextAndSeparatesItByADelimiter");
         HeaderTypes headerType = null;
@@ -71,7 +71,7 @@ public class MovimentacoesTxtTest {
     
     @Test
 //    @Ignore
-    public void shouldReadATextAndFindItsHeadersAndDomain() throws UnsupportedEncodingException, IOException {
+    public void shouldReadATextAndFindItsHeadersAndDomain() throws UnsupportedEncodingException, IOException, InstantiationException, IllegalAccessException {
         logger.info("ENTER shouldReadATextAndFindItsHeadersAndDomain");
         
         InputStreamReader in = new InputStreamReader(this.getClass().getResourceAsStream("/movimentacoes.txt"), "latin1");

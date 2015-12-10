@@ -5,10 +5,23 @@
  */
 package br.com.drivesales.util;
 
+import br.com.drivesales.parsable.types.FilialPeriodoTotal;
+
 /**
  *
  * @author thomas
  */
 public enum HeaderTypes {
-    FILIAL_PERIODO_TOTAL
+    FILIAL_PERIODO_TOTAL(FilialPeriodoTotal.class),
+    GENERIC(Object.class);
+    
+    private final Class value;
+    
+    HeaderTypes(Class clazz){
+        this.value = clazz;
+    }
+
+    public Class getValue() {
+        return value;
+    }
 }

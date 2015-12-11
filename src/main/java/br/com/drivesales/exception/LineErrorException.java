@@ -9,22 +9,26 @@ package br.com.drivesales.exception;
  *
  * @author thomas
  */
-public class MonthNotFoundException extends RuntimeException {
+public class LineErrorException extends RuntimeException {
     private String lineError;
+    private Long lineNumber;
     
-    public MonthNotFoundException() {
+    public LineErrorException() {
         super();
     }
 
-    public MonthNotFoundException(String lineError) {
+    public LineErrorException(String lineError, Long lineNumber) {
         this.lineError = lineError;
+        this.lineNumber = lineNumber;
     }
 
-    public MonthNotFoundException(String message, Throwable cause) {
-        super(message, cause);
+    public LineErrorException(String message, Long lineNumber, Throwable cause) {
+        super(cause);
+        this.lineError = message;
+        this.lineNumber = lineNumber;
     }
 
-    public MonthNotFoundException(Throwable cause) {
+    public LineErrorException(Throwable cause) {
         super(cause);
     }
 

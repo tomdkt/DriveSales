@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestPropertySource(locations="classpath:applicationtest.properties")
-@SpringApplicationConfiguration(classes = {ApplicationTest.class})
+@SpringApplicationConfiguration(classes = {WebAppConfig.class})
 @WebIntegrationTest({"server.port=0", "management.port=0"})
 public abstract class BaseTest {
     
@@ -23,7 +23,6 @@ public abstract class BaseTest {
     @Value("${local.server.port}")
     protected int port;
     protected final static String URL = "http://localhost:";
-    protected final static String SCRIPT_RESOURCE = "/script";
 
     public void setPort(int port) {
         this.port = port;

@@ -49,7 +49,7 @@ public class FilialPeriodoTotalProcess {
         
         Sale sale = new Sale();
         MonthEnum currentMonth = monthConverter.getMonth(month);
-        sale.setPeriod(monthConverter.getMonthPeriodFromMonthEnum(currentMonth, null));
+        sale.setMonthPeriod(monthConverter.getMonthPeriodFromMonthEnum(currentMonth, null));
         sale.setTotal(MoneyHelper.convertFromBrazilian(total));
         
         

@@ -13,18 +13,48 @@ import br.com.drivesales.parsable.types.POSITION;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author thomas
  */
+@Entity
+@Table
 public class Branch implements Serializable {
+    
+    @Id
+    @GeneratedValue
+    @Column(name = "BRANCH_ID", nullable = false)
+    private Long id;
+    
     private String name;
+    
+    @Column(name = "LOCATION", nullable = false)
     private String location;
+    
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="SALE_ID")
     private List<Sale> sales;
 
     public Branch() {
         this.sales = new ArrayList<>();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -50,6 +80,4 @@ public class Branch implements Serializable {
     public void setSales(List<Sale> sales) {
         this.sales = sales;
     }
-
-    
 }

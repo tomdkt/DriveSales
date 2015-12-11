@@ -1,0 +1,41 @@
+2015-12-09 17:53:38 - ENTER shouldReadATextAndSeparatesItByADelimiter
+2015-12-09 17:53:38 - 	HEADER : Filial	Periodo	Total
+2015-12-09 17:53:38 - 	FILIAL_PERIODO_TOTAL
+2015-12-09 17:53:38 - 	SUCESS
+2015-12-09 17:53:38 - END shouldReadATextAndSeparatesItByADelimiter
+2015-12-09 17:59:26 - ENTER shouldReadATextAndSeparatesItByADelimiter
+2015-12-09 17:59:26 - 	FILIAL_PERIODO_TOTAL
+2015-12-09 17:59:26 - 	SUCESS
+2015-12-09 17:59:26 - END shouldReadATextAndSeparatesItByADelimiter
+2015-12-09 19:15:59 - ENTER shouldReadATextAndSeparatesItByADelimiter
+2015-12-09 19:15:59 - 	FILIAL_PERIODO_TOTAL
+2015-12-09 19:15:59 - 	SUCESS
+2015-12-09 19:15:59 - END shouldReadATextAndSeparatesItByADelimiter
+2015-12-09 19:16:17 - ENTER shouldReadATextAndSeparatesItByADelimiter
+2015-12-09 19:16:21 - ENTER parseToEntity
+2015-12-09 19:21:23 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:21:23 - ENTER parseToEntity
+2015-12-09 19:24:00 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:24:00 - ENTER parseToEntity
+2015-12-09 19:31:04 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:31:04 - ENTER parseToEntity
+2015-12-09 19:32:07 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:32:07 - ENTER parseToEntity
+2015-12-09 19:32:47 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:32:47 - ENTER parseToEntity
+2015-12-09 19:33:32 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:33:32 - ENTER parseToEntity
+2015-12-09 19:34:03 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:34:03 - ENTER parseToEntity
+2015-12-09 19:34:31 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:34:31 - ENTER parseToEntity
+2015-12-09 19:35:23 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:35:23 - ENTER parseToEntity
+2015-12-09 19:36:33 - EXIT parseToEntity
+2015-12-09 19:36:33 - 	SUCESS
+2015-12-09 19:36:33 - END shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:37:40 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-09 19:37:40 - ENTER parseToEntity
+2015-12-09 19:37:43 - EXIT parseToEntity
+2015-12-09 19:37:57 - 	SUCESS
+2015-12-09 19:37:57 - END shouldReadATextAndFindItsHeadersAndDomain

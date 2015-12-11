@@ -1,41 +1,229 @@
-2015-12-09 17:53:38 - ENTER shouldReadATextAndSeparatesItByADelimiter
-2015-12-09 17:53:38 - 	HEADER : Filial	Periodo	Total
-2015-12-09 17:53:38 - 	FILIAL_PERIODO_TOTAL
-2015-12-09 17:53:38 - 	SUCESS
-2015-12-09 17:53:38 - END shouldReadATextAndSeparatesItByADelimiter
-2015-12-09 17:59:26 - ENTER shouldReadATextAndSeparatesItByADelimiter
-2015-12-09 17:59:26 - 	FILIAL_PERIODO_TOTAL
-2015-12-09 17:59:26 - 	SUCESS
-2015-12-09 17:59:26 - END shouldReadATextAndSeparatesItByADelimiter
-2015-12-09 19:15:59 - ENTER shouldReadATextAndSeparatesItByADelimiter
-2015-12-09 19:15:59 - 	FILIAL_PERIODO_TOTAL
-2015-12-09 19:15:59 - 	SUCESS
-2015-12-09 19:15:59 - END shouldReadATextAndSeparatesItByADelimiter
-2015-12-09 19:16:17 - ENTER shouldReadATextAndSeparatesItByADelimiter
-2015-12-09 19:16:21 - ENTER parseToEntity
-2015-12-09 19:21:23 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:21:23 - ENTER parseToEntity
-2015-12-09 19:24:00 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:24:00 - ENTER parseToEntity
-2015-12-09 19:31:04 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:31:04 - ENTER parseToEntity
-2015-12-09 19:32:07 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:32:07 - ENTER parseToEntity
-2015-12-09 19:32:47 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:32:47 - ENTER parseToEntity
-2015-12-09 19:33:32 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:33:32 - ENTER parseToEntity
-2015-12-09 19:34:03 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:34:03 - ENTER parseToEntity
-2015-12-09 19:34:31 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:34:31 - ENTER parseToEntity
-2015-12-09 19:35:23 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:35:23 - ENTER parseToEntity
-2015-12-09 19:36:33 - EXIT parseToEntity
-2015-12-09 19:36:33 - 	SUCESS
-2015-12-09 19:36:33 - END shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:37:40 - ENTER shouldReadATextAndFindItsHeadersAndDomain
-2015-12-09 19:37:40 - ENTER parseToEntity
-2015-12-09 19:37:43 - EXIT parseToEntity
-2015-12-09 19:37:57 - 	SUCESS
-2015-12-09 19:37:57 - END shouldReadATextAndFindItsHeadersAndDomain
+2015-12-11 10:07:00 - Starting DatabaseIntegrationTest on ENTELGY-NS77 with PID 7462 (/home/thomas/Desktop/DriveSales/target/test-classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:07:00 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:07:00 - No profiles are active
+2015-12-11 10:07:05 - Started DatabaseIntegrationTest in 5.611 seconds (JVM running for 7.345)
+2015-12-11 10:07:05 - shouldCreateDatabase
+2015-12-11 10:07:25 - shouldCreateDatabase
+2015-12-11 10:07:39 - Starting Application on ENTELGY-NS77 with PID 7538 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:07:39 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:07:39 - No profiles are active
+2015-12-11 10:13:09 - Starting Application on ENTELGY-NS77 with PID 7796 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:13:09 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:13:09 - No profiles are active
+2015-12-11 10:16:02 - Starting Application on ENTELGY-NS77 with PID 7987 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:16:02 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:16:02 - No profiles are active
+2015-12-11 10:17:02 - Starting Application on ENTELGY-NS77 with PID 8052 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:17:02 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:17:02 - No profiles are active
+2015-12-11 10:17:31 - Starting Application on ENTELGY-NS77 with PID 8120 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:17:31 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:17:31 - No profiles are active
+2015-12-11 10:21:10 - Starting Application on ENTELGY-NS77 with PID 8195 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:21:10 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:21:10 - No profiles are active
+2015-12-11 10:23:51 - Starting DatabaseIntegrationTest on ENTELGY-NS77 with PID 8548 (/home/thomas/Desktop/DriveSales/target/test-classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:23:51 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:23:51 - No profiles are active
+2015-12-11 10:23:56 - Started DatabaseIntegrationTest in 5.643 seconds (JVM running for 6.398)
+2015-12-11 10:23:56 - shouldCreateDatabase
+2015-12-11 10:23:56 - shouldCreateDatabase
+2015-12-11 10:25:24 - Starting Application on ENTELGY-NS77 with PID 8624 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:25:24 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:25:24 - No profiles are active
+2015-12-11 10:25:30 - Started Application in 6.548 seconds (JVM running for 6.985)
+2015-12-11 10:27:56 - Starting Application on ENTELGY-NS77 with PID 8828 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:27:56 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:27:56 - No profiles are active
+2015-12-11 10:28:02 - Started Application in 6.482 seconds (JVM running for 6.938)
+2015-12-11 10:35:05 - Starting DatabaseIntegrationTest on ENTELGY-NS77 with PID 9271 (/home/thomas/Desktop/DriveSales/target/test-classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:35:05 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:35:05 - No profiles are active
+2015-12-11 10:35:10 - Started DatabaseIntegrationTest in 4.996 seconds (JVM running for 5.91)
+2015-12-11 10:35:10 - shouldCreateDatabase
+2015-12-11 10:35:10 - shouldCreateDatabase
+2015-12-11 10:35:10 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-11 10:35:10 - ENTER parseToEntity
+2015-12-11 10:35:10 - EXIT parseToEntity
+2015-12-11 10:35:10 - 	SUCESS
+2015-12-11 10:35:10 - END shouldReadATextAndFindItsHeadersAndDomain
+2015-12-11 10:35:10 - ENTER shouldReadATextAndSeparatesItByADelimiter
+2015-12-11 10:35:10 - 	FILIAL_PERIODO_TOTAL
+2015-12-11 10:35:10 - 	SUCESS
+2015-12-11 10:35:10 - END shouldReadATextAndFindItsHeaders
+2015-12-11 10:35:10 - ENTER shouldReadATextAndSeparatesItByADelimiter
+2015-12-11 10:35:10 - 	Filial
+2015-12-11 10:35:10 - 	Periodo
+2015-12-11 10:35:10 - 	Total
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	São Paulo
+2015-12-11 10:35:10 - 	Janeiro
+2015-12-11 10:35:10 - 	14.558,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Rio de Janeiro
+2015-12-11 10:35:10 - 	Janeiro
+2015-12-11 10:35:10 - 	125.635,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Fortaleza
+2015-12-11 10:35:10 - 	Janeiro
+2015-12-11 10:35:10 - 	8.596,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Goiânia
+2015-12-11 10:35:10 - 	Janeiro
+2015-12-11 10:35:10 - 	6.565,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Belo Horizonte
+2015-12-11 10:35:10 - 	Janeiro
+2015-12-11 10:35:10 - 	8.547,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Salvador
+2015-12-11 10:35:10 - 	Janeiro
+2015-12-11 10:35:10 - 	745,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Brasilia
+2015-12-11 10:35:10 - 	Janeiro
+2015-12-11 10:35:10 - 	23,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	São Paulo
+2015-12-11 10:35:10 - 	Fevereiro
+2015-12-11 10:35:10 - 	85.744,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Rio de Janeiro
+2015-12-11 10:35:10 - 	Fevereiro
+2015-12-11 10:35:10 - 	5.255,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Fortaleza
+2015-12-11 10:35:10 - 	Fevereiro
+2015-12-11 10:35:10 - 	858.854,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Goiânia
+2015-12-11 10:35:10 - 	Fevereiro
+2015-12-11 10:35:10 - 	6.366,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Belo Horizonte
+2015-12-11 10:35:10 - 	Fevereiro
+2015-12-11 10:35:10 - 	2.521,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Salvador
+2015-12-11 10:35:10 - 	Fevereiro
+2015-12-11 10:35:10 - 	88.963,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Brasilia
+2015-12-11 10:35:10 - 	Fevereiro
+2015-12-11 10:35:10 - 	415.854,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	São Paulo
+2015-12-11 10:35:10 - 	Março
+2015-12-11 10:35:10 - 	478.996,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Rio de Janeiro
+2015-12-11 10:35:10 - 	Março
+2015-12-11 10:35:10 - 	5.552,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Fortaleza
+2015-12-11 10:35:10 - 	Março
+2015-12-11 10:35:10 - 	253.364,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Goiânia
+2015-12-11 10:35:10 - 	Março
+2015-12-11 10:35:10 - 	2.512,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Belo Horizonte
+2015-12-11 10:35:10 - 	Março
+2015-12-11 10:35:10 - 	2.455.586,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Salvador
+2015-12-11 10:35:10 - 	Março
+2015-12-11 10:35:10 - 	25.553,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	Brasilia
+2015-12-11 10:35:10 - 	Março
+2015-12-11 10:35:10 - 	28.522,00 
+2015-12-11 10:35:10 - 	END LINE
+2015-12-11 10:35:10 - 	SUCESS
+2015-12-11 10:35:10 - END shouldReadATextAndSeparatesItByADelimiter
+2015-12-11 10:35:10 - ENTER shouldReadATextAndFindItsHeadersAndDomain
+2015-12-11 10:35:10 - ENTER parseToEntity
+2015-12-11 10:35:10 - EXIT parseToEntity
+2015-12-11 10:35:10 - 	 Tempo total : 14ms
+2015-12-11 10:35:10 - 	São Paulo
+2015-12-11 10:35:10 - 		Thu Jan 01 00:00:00 BRST 2015|Sat Jan 31 00:00:00 BRST 2015
+2015-12-11 10:35:10 - 		14558.00
+2015-12-11 10:35:10 - 	Rio de Janeiro
+2015-12-11 10:35:10 - 		Thu Jan 01 00:00:00 BRST 2015|Sat Jan 31 00:00:00 BRST 2015
+2015-12-11 10:35:10 - 		125635.00
+2015-12-11 10:35:10 - 	Fortaleza
+2015-12-11 10:35:10 - 		Thu Jan 01 00:00:00 BRST 2015|Sat Jan 31 00:00:00 BRST 2015
+2015-12-11 10:35:10 - 		8596.00
+2015-12-11 10:35:10 - 	Goiânia
+2015-12-11 10:35:10 - 		Thu Jan 01 00:00:00 BRST 2015|Sat Jan 31 00:00:00 BRST 2015
+2015-12-11 10:35:10 - 		6565.00
+2015-12-11 10:35:10 - 	Belo Horizonte
+2015-12-11 10:35:10 - 		Thu Jan 01 00:00:00 BRST 2015|Sat Jan 31 00:00:00 BRST 2015
+2015-12-11 10:35:10 - 		8547.00
+2015-12-11 10:35:10 - 	Salvador
+2015-12-11 10:35:10 - 		Thu Jan 01 00:00:00 BRST 2015|Sat Jan 31 00:00:00 BRST 2015
+2015-12-11 10:35:10 - 		745.00
+2015-12-11 10:35:10 - 	Brasilia
+2015-12-11 10:35:10 - 		Thu Jan 01 00:00:00 BRST 2015|Sat Jan 31 00:00:00 BRST 2015
+2015-12-11 10:35:10 - 		23.00
+2015-12-11 10:35:10 - 	São Paulo
+2015-12-11 10:35:10 - 		Sun Feb 01 00:00:00 BRST 2015|Sat Feb 28 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		85744.00
+2015-12-11 10:35:10 - 	Rio de Janeiro
+2015-12-11 10:35:10 - 		Sun Feb 01 00:00:00 BRST 2015|Sat Feb 28 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		5255.00
+2015-12-11 10:35:10 - 	Fortaleza
+2015-12-11 10:35:10 - 		Sun Feb 01 00:00:00 BRST 2015|Sat Feb 28 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		858854.00
+2015-12-11 10:35:10 - 	Goiânia
+2015-12-11 10:35:10 - 		Sun Feb 01 00:00:00 BRST 2015|Sat Feb 28 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		6366.00
+2015-12-11 10:35:10 - 	Belo Horizonte
+2015-12-11 10:35:10 - 		Sun Feb 01 00:00:00 BRST 2015|Sat Feb 28 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		2521.00
+2015-12-11 10:35:10 - 	Salvador
+2015-12-11 10:35:10 - 		Sun Feb 01 00:00:00 BRST 2015|Sat Feb 28 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		88963.00
+2015-12-11 10:35:10 - 	Brasilia
+2015-12-11 10:35:10 - 		Sun Feb 01 00:00:00 BRST 2015|Sat Feb 28 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		415854.00
+2015-12-11 10:35:10 - 	São Paulo
+2015-12-11 10:35:10 - 		Sun Mar 01 00:00:00 BRT 2015|Tue Mar 31 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		478996.00
+2015-12-11 10:35:10 - 	Rio de Janeiro
+2015-12-11 10:35:10 - 		Sun Mar 01 00:00:00 BRT 2015|Tue Mar 31 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		5552.00
+2015-12-11 10:35:10 - 	Fortaleza
+2015-12-11 10:35:10 - 		Sun Mar 01 00:00:00 BRT 2015|Tue Mar 31 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		253364.00
+2015-12-11 10:35:10 - 	Goiânia
+2015-12-11 10:35:10 - 		Sun Mar 01 00:00:00 BRT 2015|Tue Mar 31 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		2512.00
+2015-12-11 10:35:10 - 	Belo Horizonte
+2015-12-11 10:35:10 - 		Sun Mar 01 00:00:00 BRT 2015|Tue Mar 31 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		2455586.00
+2015-12-11 10:35:10 - 	Salvador
+2015-12-11 10:35:10 - 		Sun Mar 01 00:00:00 BRT 2015|Tue Mar 31 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		25553.00
+2015-12-11 10:35:10 - 	Brasilia
+2015-12-11 10:35:10 - 		Sun Mar 01 00:00:00 BRT 2015|Tue Mar 31 00:00:00 BRT 2015
+2015-12-11 10:35:10 - 		28522.00
+2015-12-11 10:35:10 - 	SUCESS
+2015-12-11 10:35:10 - END shouldReadATextAndFindItsHeadersAndDomain
+2015-12-11 10:38:56 - Starting Application on ENTELGY-NS77 with PID 9581 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:38:56 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:38:56 - No profiles are active
+2015-12-11 10:39:02 - Started Application in 6.556 seconds (JVM running for 7.01)
+2015-12-11 10:41:45 - Starting Application on ENTELGY-NS77 with PID 9719 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:41:46 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:41:46 - No profiles are active
+2015-12-11 10:41:51 - Started Application in 6.595 seconds (JVM running for 7.375)
+2015-12-11 10:47:53 - Starting Application on ENTELGY-NS77 with PID 9959 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 10:47:53 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 10:47:53 - No profiles are active
+2015-12-11 10:48:00 - Started Application in 7.755 seconds (JVM running for 9.181)
+2015-12-11 11:02:42 - Starting Application on ENTELGY-NS77 with PID 11049 (/home/thomas/Desktop/DriveSales/target/classes started by thomas in /home/thomas/Desktop/DriveSales)
+2015-12-11 11:02:42 - Running with Spring Boot v1.3.0.RELEASE, Spring v4.2.3.RELEASE
+2015-12-11 11:02:42 - No profiles are active
+2015-12-11 11:02:48 - Started Application in 6.704 seconds (JVM running for 7.157)

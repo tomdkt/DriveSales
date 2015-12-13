@@ -13,6 +13,7 @@ import br.com.drivesales.parsable.types.POSITION;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,16 +34,12 @@ public class Branch implements Serializable {
     
     @Id
     @GeneratedValue
-    @Column(name = "BRANCH_ID", nullable = false)
     private Long id;
     
     private String name;
-    
-    @Column(name = "LOCATION", nullable = false)
     private String location;
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="SALE_ID")
     private List<Sale> sales;
 
     public Branch() {
@@ -80,4 +77,36 @@ public class Branch implements Serializable {
     public void setSales(List<Sale> sales) {
         this.sales = sales;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.id);
+        hash = 29 * hash + Objects.hashCode(this.name);
+        hash = 29 * hash + Objects.hashCode(this.location);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Branch other = (Branch) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

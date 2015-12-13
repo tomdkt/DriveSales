@@ -6,8 +6,9 @@
 package br.com.drivesales.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,11 +34,10 @@ public class Company implements Serializable {
     private String name;
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="BRANCH_ID")
-    private List<Branch> branchs;
+    private Set<Branch> branchs;
 
     public Company() {
-        this.branchs = new ArrayList<>();
+        this.branchs = new HashSet<>();
     }
 
     public Long getId() {
@@ -56,13 +56,40 @@ public class Company implements Serializable {
         this.name = name;
     }
 
-    public List<Branch> getBranchs() {
+    public Set<Branch> getBranchs() {
         return branchs;
     }
 
-    public void setBranchs(List<Branch> branchs) {
+    public void setBranchs(Set<Branch> branchs) {
         this.branchs = branchs;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.name);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Company other = (Company) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     
 }

@@ -17,17 +17,15 @@ import java.io.UnsupportedEncodingException;
 import static org.hamcrest.Matchers.is;
 import org.junit.Assert;
 import static org.junit.Assert.assertThat;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
 import static ch.lambdaj.Lambda.*;
 
-import static ch.lambdaj.Lambda.having;
 import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.select;
 import ch.lambdaj.group.Group;
+import java.util.Set;
 
 /**
  *
@@ -68,7 +66,7 @@ public class CompanyParseTest {
         Assert.assertNotNull(company.getBranchs());
         assertThat(company.getBranchs().isEmpty(), is(false));
 
-        List<Branch> branchs = company.getBranchs();
+        Set<Branch> branchs = company.getBranchs();
         Group<Branch> group = group(branchs, by(on(Branch.class).getLocation()));
         
 
@@ -76,7 +74,7 @@ public class CompanyParseTest {
             logger.info("\t" + branch.getName() + branch.getLocation());
             List<Sale> sales = branch.getSales();
             for (Sale sale : sales) {
-                logger.info("\t\t" + sale.getMonthPeriod().getInicialDate() + "|" + sale.getMonthPeriod().getFinalDate());
+                logger.info("\t\t" + sale.getInicialDate() + "|" + sale.getFinalDate());
                 logger.info("\t\t" + sale.getTotal());
             }
 

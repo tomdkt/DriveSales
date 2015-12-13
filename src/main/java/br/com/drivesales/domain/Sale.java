@@ -7,12 +7,14 @@ package br.com.drivesales.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -23,11 +25,13 @@ import javax.persistence.Table;
 public class Sale implements Serializable {
     @Id
     @GeneratedValue
-    @Column(name = "SALE_ID", nullable = false)
     private Long id;
     
-    @OneToOne
-    private MonthPeriod monthPeriod;
+    @Temporal(TemporalType.DATE)
+    private Date inicialDate;
+    
+    @Temporal(TemporalType.DATE)
+    private Date finalDate;
     
     private BigDecimal total;
 
@@ -39,12 +43,20 @@ public class Sale implements Serializable {
         this.id = id;
     }
 
-    public MonthPeriod getMonthPeriod() {
-        return monthPeriod;
+    public Date getInicialDate() {
+        return inicialDate;
     }
 
-    public void setMonthPeriod(MonthPeriod monthPeriod) {
-        this.monthPeriod = monthPeriod;
+    public void setInicialDate(Date inicialDate) {
+        this.inicialDate = inicialDate;
+    }
+
+    public Date getFinalDate() {
+        return finalDate;
+    }
+
+    public void setFinalDate(Date finalDate) {
+        this.finalDate = finalDate;
     }
 
     public BigDecimal getTotal() {

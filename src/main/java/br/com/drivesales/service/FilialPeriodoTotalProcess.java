@@ -7,6 +7,7 @@ package br.com.drivesales.service;
 
 import br.com.drivesales.domain.Branch;
 import br.com.drivesales.domain.Company;
+import br.com.drivesales.domain.MonthPeriod;
 import br.com.drivesales.domain.Sale;
 import br.com.drivesales.parsable.template.FilialPeriodoTotalTemplate;
 import br.com.drivesales.reflection.ParseReflectionService;
@@ -15,6 +16,8 @@ import br.com.drivesales.util.HeaderTypes;
 import br.com.drivesales.util.MoneyHelper;
 import br.com.drivesales.util.MonthConverter;
 import br.com.drivesales.util.MonthEnum;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  *
@@ -43,22 +46,41 @@ public class FilialPeriodoTotalProcess {
         String month = template.getPeriodo();
         String total = template.getTotal();
         
+        
         Branch branch = new Branch();
         branch.setName("");
         branch.setLocation(location);
+        branch = getBranch(branch, company.getBranchs());
+        if(branch == null){
+            
+        }
         
         Sale sale = new Sale();
-        MonthEnum currentMonth = monthConverter.getMonth(month);
-        sale.setMonthPeriod(monthConverter.getMonthPeriodFromMonthEnum(currentMonth, null));
+        MonthPeriod currentMonth = monthConverter.getMonthPeriodFromMonthEnum(monthConverter.getMonth(month), null);
+        sale.setInicialDate(currentMonth.getInicialDate());
+        sale.setFinalDate(currentMonth.getFinalDate());
         sale.setTotal(MoneyHelper.convertFromBrazilian(total));
-        
-        
         branch.getSales().add(sale);
+        
         this.company.getBranchs().add(branch);
     }
     
     public Company build(){
         return this.company;
+    }
+    
+    private Branch getBranch(Branch branch, Set<Branch> set){
+        if(!set.contains(branch)){
+            return branch;
+        }
+        for (Branch b : set) {
+            if(b.equals(branch)){
+                Branch temp = b;
+                set.remove(b);
+                return temp;
+            }
+        }
+        return branch;
     }
     
 }

@@ -10,14 +10,15 @@ import br.com.drivesales.util.HeaderTypes;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author thomas
  */
+@Component
 public class HeaderDelimitedFinder {
     
     private final Logger logger = LoggerFactory.getLogger(HeaderDelimitedFinder.class);

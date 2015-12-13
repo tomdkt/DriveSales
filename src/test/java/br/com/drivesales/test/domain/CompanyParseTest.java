@@ -9,6 +9,7 @@ import br.com.drivesales.domain.Branch;
 import br.com.drivesales.domain.Company;
 import br.com.drivesales.domain.Sale;
 import br.com.drivesales.service.ProcessStream;
+import br.com.drivesales.test.BaseTest;
 import br.com.drivesales.util.DelimitersEnum;
 import br.com.drivesales.util.HeaderTypes;
 import java.io.IOException;
@@ -26,15 +27,22 @@ import static ch.lambdaj.Lambda.*;
 import static ch.lambdaj.Lambda.on;
 import ch.lambdaj.group.Group;
 import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author thomas
  */
-public class CompanyParseTest {
+public class CompanyParseTest extends BaseTest{
 
     private final Logger logger = LoggerFactory.getLogger(CompanyParseTest.class);
-    ProcessStream<Company> processStream = new ProcessStream<>();
+    private ProcessStream<Company> processStream;
+
+    @Autowired
+    public void setProcessStream(ProcessStream<Company> processStream) {
+        this.processStream = processStream;
+    }
+    
 
     @Test
 //    @Ignore
@@ -47,6 +55,7 @@ public class CompanyParseTest {
         assertThat(company.getBranchs().iterator().next().getSales().isEmpty(), is(false));
 
     }
+
 
     @Test
 //    @Ignore

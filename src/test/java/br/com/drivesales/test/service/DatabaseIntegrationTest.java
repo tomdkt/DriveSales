@@ -14,7 +14,7 @@ import br.com.drivesales.repository.BranchRepository;
 import br.com.drivesales.repository.CompanyRepository;
 import br.com.drivesales.repository.SaleRepository;
 import br.com.drivesales.service.ProcessStream;
-import br.com.drivesales.test.RepositoryConfiguration;
+import br.com.drivesales.test.BaseTest;
 import br.com.drivesales.util.DelimitersEnum;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,33 +23,46 @@ import java.math.BigDecimal;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
  * @author thomas
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {RepositoryConfiguration.class})
-@TestPropertySource(locations="classpath:applicationtest.properties")
-public class DatabaseIntegrationTest{
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = {RepositoryConfiguration.class})
+//@TestPropertySource(locations="classpath:applicationtest.properties")
+public class DatabaseIntegrationTest extends BaseTest{
     
     private final Logger logger = LoggerFactory.getLogger(DatabaseIntegrationTest.class);
     
-    ProcessStream<Company> processStream = new ProcessStream<>();
-    
+    private ProcessStream<Company> processStream;
     private CompanyRepository companyRepository;
     private BranchRepository branchRepository;
     private SaleRepository saleRepository;
-    
-    
+
+    @Autowired
+    public void setProcessStream(ProcessStream<Company> processStream) {
+        this.processStream = processStream;
+    }
+
+    @Autowired
+    public void setCompanyRepository(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
+
+    @Autowired
+    public void setBranchRepository(BranchRepository branchRepository) {
+        this.branchRepository = branchRepository;
+    }
+
+    @Autowired
+    public void setSaleRepository(SaleRepository saleRepository) {
+        this.saleRepository = saleRepository;
+    }
     
     
     @Test
@@ -175,20 +188,5 @@ public class DatabaseIntegrationTest{
         logger.info("\tMOST INCREASE: " + mostIncrease.getLocation());
         
         logger.info("shouldMonthWithMoreSales");
-    }
-
-    @Autowired
-    public void setCompanyRepository(CompanyRepository companyRepository) {
-        this.companyRepository = companyRepository;
-    }
-
-    @Autowired
-    public void setBranchRepository(BranchRepository branchRepository) {
-        this.branchRepository = branchRepository;
-    }
-
-    @Autowired
-    public void setSaleRepository(SaleRepository saleRepository) {
-        this.saleRepository = saleRepository;
     }
 }

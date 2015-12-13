@@ -13,17 +13,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author thomas
  */
+@Component
 public class ProcessStream<T> {
     
     private final Logger logger = LoggerFactory.getLogger(ProcessStream.class);
-    private final static String EMPTY_STRING = "";
-    HeaderDelimitedFinder headerFinder = new HeaderDelimitedFinder();
-    
+    private final HeaderDelimitedFinder headerFinder;
+
+    @Autowired
+    public ProcessStream(HeaderDelimitedFinder headerFinder) {
+        this.headerFinder = headerFinder;
+    }
     
     public T parseToEntity(InputStreamReader in, DelimitersEnum delimiter) throws IOException, InstantiationException, IllegalAccessException{
         logger.debug("ENTER parseToEntity");

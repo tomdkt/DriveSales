@@ -8,6 +8,7 @@ package br.com.drivesales.test.service;
 import br.com.drivesales.domain.Company;
 import br.com.drivesales.service.HeaderDelimitedFinder;
 import br.com.drivesales.service.ProcessStream;
+import br.com.drivesales.test.BaseTest;
 import br.com.drivesales.util.DelimitersEnum;
 import br.com.drivesales.util.HeaderTypes;
 import java.io.BufferedReader;
@@ -20,17 +21,27 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author thomas
  */
-public class MovimentacoesTxtTest {
+public class MovimentacoesTxtTest extends BaseTest{
     private final Logger logger = LoggerFactory.getLogger(MovimentacoesTxtTest.class);
     
-    HeaderDelimitedFinder headerFinder = new HeaderDelimitedFinder();
-    ProcessStream<Company> processStream = new ProcessStream<>();
-    
+    private HeaderDelimitedFinder headerFinder;
+    private ProcessStream<Company> processStream;
+
+    @Autowired
+    public void setHeaderFinder(HeaderDelimitedFinder headerFinder) {
+        this.headerFinder = headerFinder;
+    }
+
+    @Autowired
+    public void setProcessStream(ProcessStream<Company> processStream) {
+        this.processStream = processStream;
+    }
     
     @Test
 //    @Ignore

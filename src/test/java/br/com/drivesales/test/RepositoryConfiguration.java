@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableAutoConfiguration
-@EntityScan(basePackages = {"br.com.drivesales.domain"})
-@EnableJpaRepositories(basePackages = {"br.com.drivesales.repository"})
+@EntityScan(basePackages = {"br.com.drivesales"})
+@EnableJpaRepositories(basePackages = {"br.com.drivesales"})
 @EnableTransactionManagement
 public class RepositoryConfiguration {
     

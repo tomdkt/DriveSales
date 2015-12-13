@@ -1,6 +1,6 @@
 package br.com.drivesales.test;
 
-import br.com.drivesales.test.ApplicationTest;
+import br.com.drivesales.WebAppConfig;
 import org.slf4j.Logger;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;

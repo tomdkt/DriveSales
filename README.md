@@ -23,7 +23,7 @@ http://localhost:8080/
 `src/main/resources/application.properties` e altere o `server.port`
 
 ### Estrategia
-Utilizado reflexão e annotation para melhor manutenibilidade. 
+Utilizado reflexão e annotation para melhor manutenibilidade na inclusão de novos tipos de arquivos. Realizado foco em 'contract design'(algumas injeções de dependencia e factories serão realizadas posteriormente)
 
 ### Technologies
   - Java 1.7

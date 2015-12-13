@@ -33,7 +33,7 @@ public class ProcessStream<T> {
     
     public T parseToEntity(InputStreamReader in, DelimitersEnum delimiter) throws IOException, InstantiationException, IllegalAccessException{
         logger.debug("ENTER parseToEntity");
-        FilialPeriodoTotalProcess filialProcess = null;
+        DelimitedProcess toProcess = null;
         
         String currentLine = "";
         Long lineNumber = 1L;
@@ -42,10 +42,11 @@ public class ProcessStream<T> {
             lineNumber++;
             
             HeaderTypes headerType = headerFinder.getTypeHeader(header, DelimitersEnum.TAB);
-            filialProcess = new FilialPeriodoTotalProcess(headerType,delimiter);
+            ////TODO add dynamic DelimitedProcess and ParseReflectionService
+            toProcess = new FilialPeriodoTotalProcess(headerType,delimiter);
             
             while ((currentLine = br.readLine()) != null) {
-                filialProcess.parse(currentLine);
+                toProcess.parse(currentLine);
                 lineNumber++;
             }
             br.close();
@@ -55,7 +56,7 @@ public class ProcessStream<T> {
         }
         
         logger.debug("EXIT parseToEntity");
-        return (T) filialProcess.build();
+        return (T) toProcess.build();
     }
     
     public T parseToEntity(String line, HeaderTypes headerType, DelimitersEnum delimiter) throws IOException, InstantiationException, IllegalAccessException{

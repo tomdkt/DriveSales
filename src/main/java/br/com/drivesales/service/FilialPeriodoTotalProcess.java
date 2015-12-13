@@ -23,7 +23,7 @@ import java.util.Set;
  *
  * @author thomas
  */
-public class FilialPeriodoTotalProcess {
+public class FilialPeriodoTotalProcess implements DelimitedProcess {
     private final DelimitersEnum delimited;
     private final HeaderTypes header;
     private Company company;
@@ -37,6 +37,7 @@ public class FilialPeriodoTotalProcess {
         this.company = new Company();
     }
     
+    @Override
     public void parse(String line) throws InstantiationException, IllegalAccessException{
         if(line == null || line.isEmpty()){
             return;
@@ -68,6 +69,7 @@ public class FilialPeriodoTotalProcess {
         this.company.getBranchs().add(branch);
     }
     
+    @Override
     public Company build(){
         return this.company;
     }

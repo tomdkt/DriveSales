@@ -22,6 +22,9 @@ http://localhost:8080/
 ### Para trocar a porta do servidor acesse:
 `src/main/resources/application.properties` e altere o `server.port`
 
+### Estrategia
+Utilizado reflexão e annotation para melhor manutenibilidade. 
+
 ### Technologies
   - Java 1.7
   - maven-3.3.3

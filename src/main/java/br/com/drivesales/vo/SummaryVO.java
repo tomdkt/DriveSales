@@ -15,7 +15,7 @@ import br.com.drivesales.util.DateParser;
  */
 public class SummaryVO {
     private LocationAndTotalDTO branchMostSold;
-    private MonthTopSalles monthTopSalles;
+    private String monthTopSalles;
     private LocationAndTotalDTO branchMoreIncrease;
     private LocationAndTotalDTO branchLessIncrease;
 
@@ -23,16 +23,16 @@ public class SummaryVO {
         return branchMostSold;
     }
 
-    public void setBranchMostSold(LocationAndTotalDTO branchMostSold) {
-        this.branchMostSold = branchMostSold;
-    }
-
-    public MonthTopSalles getTopSalles() {
+    public String getMonthTopSalles() {
         return monthTopSalles;
     }
 
-    public void setTopSalles(MonthTopSalles topSalles) {
-        this.monthTopSalles = topSalles;
+    public void setMonthTopSalles(String monthTopSalles) {
+        this.monthTopSalles = monthTopSalles;
+    }
+
+    public void setBranchMostSold(LocationAndTotalDTO branchMostSold) {
+        this.branchMostSold = branchMostSold;
     }
 
     public LocationAndTotalDTO getBranchMoreIncrease() {
@@ -50,16 +50,4 @@ public class SummaryVO {
     public void setBranchLessIncrease(LocationAndTotalDTO branchLessIncrease) {
         this.branchLessIncrease = branchLessIncrease;
     }
-    
-    //TODO remove toString
-    @Override
-    public String toString() {
-        return 
-                "-Filial que mais vendeu no periodo: <b>" + branchMostSold.getLocation() + "</b><br /> " +
-                "-Filial que teve o maior crescimento: <b>" + branchMoreIncrease.getLocation()+ "</b><br /> " +
-                "-Filial que teve a maior queda nas vendas: <b>" + branchLessIncrease.getLocation()+ "</b><br /> " +
-                "-Mês em que a empresa mais vendeu: <b>" + DateParser.getMonthNameFromBrazil(monthTopSalles.getInicialDate())+ "</b><br /> ";
-    }
-    
-    
 }

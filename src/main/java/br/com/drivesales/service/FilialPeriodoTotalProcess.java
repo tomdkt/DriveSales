@@ -38,6 +38,9 @@ public class FilialPeriodoTotalProcess {
     }
     
     public void parse(String line) throws InstantiationException, IllegalAccessException{
+        if(line == null || line.isEmpty()){
+            return;
+        }
         String[] parsed = line.split(delimited.getValue(), -1);
         
         FilialPeriodoTotalTemplate template = parseReflectionService.getEntity(parsed, header);

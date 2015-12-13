@@ -39,4 +39,12 @@ public class LineErrorException extends RuntimeException {
     public void setLineError(String lineError) {
         this.lineError = lineError;
     }
+
+    public Long getLineNumber() {
+        return lineNumber;
+    }
+
+    public void setLineNumber(Long lineNumber) {
+        this.lineNumber = lineNumber;
+    }
 }

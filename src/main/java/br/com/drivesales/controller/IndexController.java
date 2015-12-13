@@ -6,12 +6,15 @@
 package br.com.drivesales.controller;
 
 import br.com.drivesales.domain.Company;
+import br.com.drivesales.domain.MessageError;
 import br.com.drivesales.dto.LocationAndTotalDTO;
 import br.com.drivesales.dto.MonthTopSalles;
+import br.com.drivesales.exception.LineErrorException;
 import br.com.drivesales.repository.BranchRepository;
 import br.com.drivesales.repository.CompanyRepository;
 import br.com.drivesales.repository.SaleRepository;
 import br.com.drivesales.service.ProcessStream;
+import br.com.drivesales.util.DateParser;
 import br.com.drivesales.util.DelimitersEnum;
 import br.com.drivesales.vo.SummaryVO;
 import java.io.IOException;
@@ -26,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -56,7 +60,7 @@ public class IndexController {
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public @ResponseBody
-    String handleFileUpload(@RequestParam("tempFile") MultipartFile file) {
+    ModelAndView handleFileUpload(@RequestParam("tempFile") MultipartFile file) {
         if (!file.isEmpty()) {
             String name = file.getName();
             try {
@@ -69,16 +73,27 @@ public class IndexController {
                 this.companyRepository.save(company);
                 
                 SummaryVO summary = this.getSummaryVO();
-                
-                
-                return summary.toString();
-            } catch (IOException | InstantiationException | IllegalAccessException e) {
+                ModelAndView mav = new ModelAndView("summary");
+                mav.addObject("summary", summary);
+                return mav;
+            } catch (LineErrorException e) {
+                logger.error("LineErrorException", e);
+                ModelAndView mav = new ModelAndView("messageError");
+                MessageError msg = new MessageError("Ocorreu um erro ao processar: line:  \"" + e.getLineError() + "\" | lineNumber:" + e.getLineNumber() + " | mensagem de erro => " + e.getMessage());
+                mav.addObject("messageError", msg);
+                return mav;
+            }catch (IOException | InstantiationException | IllegalAccessException e) {
                 logger.error("Error in handleFileUpload", e);
-                return "You failed to upload " + name + " => " + e.getMessage();
+                ModelAndView mav = new ModelAndView("messageError");
+                MessageError msg = new MessageError("You failed to upload " + name + " => " + e.getMessage());
+                mav.addObject("messageError", msg);
+                return mav;
             }
-        } else {
-            return "The selected file was empty and could not be uploaded.";
         }
+        ModelAndView mav = new ModelAndView("messageError");
+        MessageError msg = new MessageError("The selected file was empty and could not be uploaded.");
+        mav.addObject("messageError", msg);
+        return mav;
     }
     
     private SummaryVO getSummaryVO(){
@@ -90,7 +105,7 @@ public class IndexController {
         }
         List<MonthTopSalles> monthTopSalles = this.saleRepository.getMonthWithMoreSalesDTO();
         if(monthTopSalles != null && !monthTopSalles.isEmpty()){
-            summary.setTopSalles(monthTopSalles.iterator().next());
+            summary.setMonthTopSalles(DateParser.getMonthNameFromBrazil(monthTopSalles.iterator().next().getInicialDate()));
         }
 
         //TODO improve query

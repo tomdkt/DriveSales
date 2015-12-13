@@ -6,7 +6,11 @@ Sumarização da importação de movimentação de vendas no primeiro trimestre 
   - Java 1.7x
   - internet acess
 
-### Para realizar testes(no pom.xml):
+### Para dar build e realizar testes(no pom.xml):
+```sh
+$ mvn clean install
+```
+ou
 ```sh
 $ mvn test
 ```

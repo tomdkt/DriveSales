@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +19,8 @@ import java.util.logging.Logger;
  */
 public class DateParser {
     private static final SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yyyy");
+    
+    public final static Locale BRAZIL = new Locale("pt","BR");
     
     public static Date parseStringToDate_dd_MM_yyyy(String date) {
         try {
@@ -32,6 +35,11 @@ public class DateParser {
         Calendar now = Calendar.getInstance();
         int year = now.get(Calendar.YEAR);
         return String.valueOf(year);
+    }
+    
+    public static String getMonthNameFromBrazil(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat( "MMMM", BRAZIL);
+        return dateFormat.format( date );
     }
 
     public static Date trimDate(Date date) {

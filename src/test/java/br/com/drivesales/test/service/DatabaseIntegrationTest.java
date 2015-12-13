@@ -8,7 +8,8 @@ package br.com.drivesales.test.service;
 import br.com.drivesales.domain.Branch;
 import br.com.drivesales.domain.Company;
 import br.com.drivesales.domain.Sale;
-import br.com.drivesales.dto.BranchMostSoldDTO;
+import br.com.drivesales.dto.LocationAndTotalDTO;
+import br.com.drivesales.dto.MonthTopSalles;
 import br.com.drivesales.repository.BranchRepository;
 import br.com.drivesales.repository.CompanyRepository;
 import br.com.drivesales.repository.SaleRepository;
@@ -21,7 +22,6 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.List;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -53,11 +53,10 @@ public class DatabaseIntegrationTest{
     
     
     @Test
-    @Ignore
     public void shouldCreateCompanyInDatabaseMemory() throws UnsupportedEncodingException, IOException, InstantiationException, IllegalAccessException{
         logger.info("shouldCreateDatabase");
-        System.out.println("oi");
         
+        this.companyRepository.deleteAll();
         InputStreamReader in = new InputStreamReader(this.getClass().getResourceAsStream("/movimentacoes.txt"), "latin1");
         Company company = this.processStream.parseToEntity(in, DelimitersEnum.TAB);
         
@@ -94,18 +93,88 @@ public class DatabaseIntegrationTest{
     @Test
     public void shouldQueryBranchMostSell() throws UnsupportedEncodingException, IOException, InstantiationException, IllegalAccessException{
         logger.info("shouldQueryBranchMostSell");
-        System.out.println("oi");
+        this.companyRepository.deleteAll();
+        InputStreamReader in = new InputStreamReader(this.getClass().getResourceAsStream("/movimentacoes.txt"), "latin1");
+        Company company = this.processStream.parseToEntity(in, DelimitersEnum.TAB);
+        this.companyRepository.save(company);
         
-        List<BranchMostSoldDTO> branchs = branchRepository.getMostSold();
+        List<LocationAndTotalDTO> branchs = branchRepository.getMostSold();
         
         Assert.assertNotNull(branchs);
         Assert.assertTrue(!branchs.isEmpty());
         
-        BranchMostSoldDTO mostSold = branchs.iterator().next();
+        LocationAndTotalDTO mostSold = branchs.iterator().next();
         Assert.assertNotNull(mostSold);
         Assert.assertEquals(new BigDecimal("2466654.00"), mostSold.getTotal());
         
         logger.info("shouldQueryBranchMostSell");
+    }
+    
+    @Test
+    public void shouldMonthWithMoreSales() throws UnsupportedEncodingException, IOException, InstantiationException, IllegalAccessException{
+        logger.info("shouldMonthWithMoreSales");
+        this.companyRepository.deleteAll();
+        InputStreamReader in = new InputStreamReader(this.getClass().getResourceAsStream("/movimentacoes.txt"), "latin1");
+        Company company = this.processStream.parseToEntity(in, DelimitersEnum.TAB);
+        this.companyRepository.save(company);
+        
+        List<MonthTopSalles> topSalles = this.saleRepository.getMonthWithMoreSalesDTO();
+        
+        Assert.assertNotNull(topSalles);
+        Assert.assertTrue(!topSalles.isEmpty());
+        
+        MonthTopSalles topSallesMonth = topSalles.iterator().next();
+        Assert.assertNotNull(topSallesMonth);
+        Assert.assertEquals(new BigDecimal("3250085.00"), topSallesMonth.getTotalMonth());
+        
+        
+        logger.info("shouldMonthWithMoreSales");
+    }
+    
+    @Test
+    public void shouldGetBranchMoreIncrease() throws UnsupportedEncodingException, IOException, InstantiationException, IllegalAccessException{
+        logger.info("shouldMonthWithMoreSales");
+        this.companyRepository.deleteAll();
+        InputStreamReader in = new InputStreamReader(this.getClass().getResourceAsStream("/movimentacoes.txt"), "latin1");
+        Company company = this.processStream.parseToEntity(in, DelimitersEnum.TAB);
+        this.companyRepository.save(company);
+        
+        List<LocationAndTotalDTO> branchsMoreIncrease = this.branchRepository.getBranchMoreIncrease();
+        
+        Assert.assertNotNull(branchsMoreIncrease);
+        Assert.assertTrue(!branchsMoreIncrease.isEmpty());
+        
+        LocationAndTotalDTO mostIncrease = branchsMoreIncrease.iterator().next();
+        Assert.assertNotNull(mostIncrease);
+        Assert.assertEquals("Belo Horizonte", mostIncrease.getLocation());
+        Assert.assertEquals(new BigDecimal("2455586.00"), mostIncrease.getTotal());
+        
+        logger.info("\tMOST INCREASE: " + mostIncrease.getLocation());
+        
+        logger.info("shouldMonthWithMoreSales");
+    }
+    
+    @Test
+    public void shouldGetBranchLessIncrease() throws UnsupportedEncodingException, IOException, InstantiationException, IllegalAccessException{
+        logger.info("shouldMonthWithMoreSales");
+        this.companyRepository.deleteAll();
+        InputStreamReader in = new InputStreamReader(this.getClass().getResourceAsStream("/movimentacoes.txt"), "latin1");
+        Company company = this.processStream.parseToEntity(in, DelimitersEnum.TAB);
+        this.companyRepository.save(company);
+        
+        List<LocationAndTotalDTO> branchsLessIncrease = this.branchRepository.getBranchMoreIncrease();
+        
+        Assert.assertNotNull(branchsLessIncrease);
+        Assert.assertTrue(!branchsLessIncrease.isEmpty());
+        
+        LocationAndTotalDTO mostIncrease = branchsLessIncrease.get(branchsLessIncrease.size() -1);
+        Assert.assertNotNull(mostIncrease);
+        Assert.assertEquals("São Paulo", mostIncrease.getLocation());
+        Assert.assertEquals(new BigDecimal("14558.00"), mostIncrease.getTotal());
+        
+        logger.info("\tMOST INCREASE: " + mostIncrease.getLocation());
+        
+        logger.info("shouldMonthWithMoreSales");
     }
 
     @Autowired

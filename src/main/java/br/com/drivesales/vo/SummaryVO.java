@@ -7,6 +7,7 @@ package br.com.drivesales.vo;
 
 import br.com.drivesales.dto.LocationAndTotalDTO;
 import br.com.drivesales.dto.MonthTopSalles;
+import br.com.drivesales.util.DateParser;
 
 /**
  *
@@ -14,7 +15,7 @@ import br.com.drivesales.dto.MonthTopSalles;
  */
 public class SummaryVO {
     private LocationAndTotalDTO branchMostSold;
-    private MonthTopSalles topSalles;
+    private MonthTopSalles monthTopSalles;
     private LocationAndTotalDTO branchMoreIncrease;
     private LocationAndTotalDTO branchLessIncrease;
 
@@ -27,11 +28,11 @@ public class SummaryVO {
     }
 
     public MonthTopSalles getTopSalles() {
-        return topSalles;
+        return monthTopSalles;
     }
 
     public void setTopSalles(MonthTopSalles topSalles) {
-        this.topSalles = topSalles;
+        this.monthTopSalles = topSalles;
     }
 
     public LocationAndTotalDTO getBranchMoreIncrease() {
@@ -55,9 +56,9 @@ public class SummaryVO {
     public String toString() {
         return 
                 "-Filial que mais vendeu no periodo: <b>" + branchMostSold.getLocation() + "</b><br /> " +
-                "-Filial que teve o maior crescimento: <b>" + topSalles.getTotalMonth()+ "</b><br /> " +
-                "-Filial que mais vendeu no periodo: <b>" + branchMoreIncrease.getLocation()+ "</b><br /> " +
-                "-Filial que menos vendeu no periodo: <b>" + branchLessIncrease.getLocation()+ "</b><br /> ";
+                "-Filial que teve o maior crescimento: <b>" + branchMoreIncrease.getLocation()+ "</b><br /> " +
+                "-Filial que teve a maior queda nas vendas: <b>" + branchLessIncrease.getLocation()+ "</b><br /> " +
+                "-Mês em que a empresa mais vendeu: <b>" + DateParser.getMonthNameFromBrazil(monthTopSalles.getInicialDate())+ "</b><br /> ";
     }
     
     

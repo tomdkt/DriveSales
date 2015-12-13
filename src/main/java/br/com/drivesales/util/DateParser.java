@@ -38,6 +38,9 @@ public class DateParser {
     }
     
     public static String getMonthNameFromBrazil(Date date) {
+        if(date == null){
+            return null;
+        }
         SimpleDateFormat dateFormat = new SimpleDateFormat( "MMMM", BRAZIL);
         return dateFormat.format( date );
     }

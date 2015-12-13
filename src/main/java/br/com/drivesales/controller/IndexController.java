@@ -88,9 +88,9 @@ public class IndexController {
         if(branchs != null && !branchs.isEmpty()){
             summary.setBranchMostSold(branchs.iterator().next());
         }
-        List<MonthTopSalles> topSalles = this.saleRepository.getMonthWithMoreSalesDTO();
-        if(topSalles != null && !topSalles.isEmpty()){
-            summary.setTopSalles(topSalles.iterator().next());
+        List<MonthTopSalles> monthTopSalles = this.saleRepository.getMonthWithMoreSalesDTO();
+        if(monthTopSalles != null && !monthTopSalles.isEmpty()){
+            summary.setTopSalles(monthTopSalles.iterator().next());
         }
 
         //TODO improve query
